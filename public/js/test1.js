@@ -1,0 +1,2 @@
+
+console.log(Laravel.name)

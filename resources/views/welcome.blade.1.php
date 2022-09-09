@@ -11,9 +11,8 @@
 
     </head>
     <body>
-    <script>
         window.Laravel = {};
-        window.Laravel.name = @json($latlngList);
+        window.Laravel.name = @json($data);
     </script>
     <script src="{{ asset('js/test1.js') }}"></script>
     </body>
