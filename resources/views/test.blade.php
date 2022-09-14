@@ -11,13 +11,8 @@
 
     </head>
     <body>
-        <div id="sample" style="height:500px"></div>
-    <script>
-        window.Laravel = {};
-        window.Laravel.name = @json($arr1);
-    </script>
-    <script src="{{ asset('js/sample.js') }}"></script>//
-    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAxU7ILtWN8SB8nZ4Gvls2HoaJlcY5UEfg&callback=initMap" async defer>
-    </script>
+        aaa
+        <a>{{ $data }}</a>
+        <script src="{{ asset('js/test.js') }}"></script>
     </body>
 </html>
