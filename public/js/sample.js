@@ -1,34 +1,16 @@
 var map;
 var marker = [];
 var infoWindow = [];
-var markerData = [ // マーカーを立てる場所名・緯度・経度
-  {
-       name: 'TAM 東京',
-       lat: 35.6954806,
-        lng: 139.76325010000005,
-        icon: 'tam.png' // TAM 東京のマーカーだけイメージを変更する
- }, {
-        name: '小川町駅',
-     lat: 35.6951212,
-        lng: 139.76610649999998
- }, {
-        name: '淡路町駅',
-     lat: 35.69496,
-      lng: 139.76746000000003
- }, {
-        name: '御茶ノ水駅',
-        lat: 35.6993529,
-        lng: 139.76526949999993
- }, {
-        name: '神保町駅',
-     lat: 35.695932,
-     lng: 139.75762699999996
- }, {
-        name: '新御茶ノ水駅',
-       lat: 35.696932,
-     lng: 139.76543200000003
- }
-];
+var markerData = []; 
+
+for (var i = 0; i < Laravel.name.length; i++) {
+  var data_tmp = {};
+  data_tmp.name = Laravel.name[i][2];
+  data_tmp.lat = Laravel.name[i][0];
+  data_tmp.lng = Laravel.name[i][1];
+  markerData.push(data_tmp);
+    
+}
  
 function initMap() {
  // 地図の作成
@@ -51,13 +33,7 @@ function initMap() {
        });
  
      markerEvent(i); // マーカーにクリックイベントを追加
- }
- 
-   marker[0].setOptions({// TAM 東京のマーカーのオプション設定
-        icon: {
-         url: markerData[0]['icon']// マーカーの画像を変更
-       }
-   });
+ };
 }
  
 // マーカーにクリックイベントを追加

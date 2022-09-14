@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'MapController@maps');
+Route::get('/test', 'TestController@test');
 
 Auth::routes();
 
