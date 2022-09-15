@@ -8,7 +8,7 @@ class MapController extends Controller
 {
     public function maps(Request $request){
         $latlngList = array("35.25784309376972,136.21910095558135");
-        $key = 'AIzaSyAxU7ILtWN8SB8nZ4Gvls2HoaJlcY5UEfg';
+        $key = 'APIキー';
         $keyword = 'コンビニ';
         $arr1 = [];
         

@@ -1,6 +1,4 @@
-@extends('layouts.app')　　　　　　　　　　　　　　　　　　
 
-@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -14,14 +12,21 @@
 
     </head>
     <body>
+        <h>{{$janl}}</h>
         <div id="sample" style="height:500px"></div>
+        <div class="back">[<a href="/">back</a>]</div>
     <script>
         window.Laravel = {};
         window.Laravel.name = @json($arr1);
+        
+        window.lat = {};
+        window.lat.name = @json($lat);
+        
+        window.lng = {};
+        window.lng.name = @json($lng);
     </script>
     <script src="{{ asset('js/sample.js') }}"></script>//
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=APIキー&callback=initMap" async defer>
     </script>
     </body>
-</html>
-@endsection
+</html>　　　　　　　　　　　  　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　

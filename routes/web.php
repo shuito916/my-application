@@ -1,5 +1,8 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TopController;
+use App\Http\Controllers\MapController;
+use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +14,11 @@
 |
 */
 
-Route::get('/', 'MapController@maps');
+Route::get('/', 'TopController@index');
+Route::post('/category', 'TopController@category');
+Route::get('/map', 'MapController@maps');
 Route::get('/test', 'TestController@test');
+Route::post('/test', 'TestController@test');
 
 Auth::routes();
 

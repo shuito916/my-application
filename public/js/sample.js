@@ -1,7 +1,14 @@
 var map;
 var marker = [];
 var infoWindow = [];
-var markerData = []; 
+var markerData = [];
+var current = {};
+var latlng = [];
+
+current.name = "現在位置";
+current.lat = lat.name;
+current.lng = lng.name;
+markerData.push(current);
 
 for (var i = 0; i < Laravel.name.length; i++) {
   var data_tmp = {};
@@ -11,6 +18,8 @@ for (var i = 0; i < Laravel.name.length; i++) {
   markerData.push(data_tmp);
     
 }
+
+console.log(markerData);
  
 function initMap() {
  // 地図の作成
@@ -33,7 +42,7 @@ function initMap() {
        });
  
      markerEvent(i); // マーカーにクリックイベントを追加
- };
+ }
 }
  
 // マーカーにクリックイベントを追加
