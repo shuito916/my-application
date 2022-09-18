@@ -12,7 +12,11 @@
 
     </head>
     <body>
-
+<form action="/test2" method="POST">
+    @csrf
+    <INPUT type="hidden" name="seikai"  value="" >
+    <input type="submit" value="あなたに今おすすめのご飯は…"/>
+</form>
 <script src="{{ asset('js/test.js') }}"></script>
     </body>
 </html>

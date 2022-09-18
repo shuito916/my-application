@@ -79,8 +79,8 @@ class TopController extends Controller
             } 
             
             
-            $curent_lat = 35.25784309376972;
-            $curent_lng = 136.21910095558135;
+            $curent_lat = $request->lat;
+            $curent_lng = $request->lng;
             
             $lat_string = (string)$curent_lat;
             $lng_string = (string)$curent_lng;

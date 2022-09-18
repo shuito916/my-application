@@ -12,7 +12,7 @@ class TestController extends Controller
     
     public function test2(Request $request){
         
-        $ABC = $request->ABC;
-        return view('/test2')->with(['ABC'=>$ABC]);
+        $seikai = $request->seikai;
+        return view('/test2')->with(['seikai'=>$seikai]);
     }
 }

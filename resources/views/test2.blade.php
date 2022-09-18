@@ -13,6 +13,6 @@
     </head>
     <body>
 
-    <h>{{$ABC}}</h>
+    <h>{{$seikai}}</h>
     </body>
 </html>
