@@ -1,14 +1,21 @@
-var data = 'aaaaaa';
+function postForm(value) {
+ 
+    var form = document.createElement('form');
+    var request = document.createElement('input');
+ 
+    form.method = 'POST';
+    form.action = '/test2';
+ 
+    request.type = 'hidden'; //入力フォームが表示されないように
+    request.name = 'ABC';
+    request.value = value;
+ 
+    form.appendChild(request);
+    document.body.appendChild(form);
+ 
+    form.submit();
+ 
+}
 
-
-fetch('/test', { // 第1引数に送り先
-    method: 'POST', // メソッド指定
-    headers: { 'Content-Type': 'application/json',
-                "X-Requested-With": "XMLHttpRequest", 
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-    }, // jsonを指定
-    body: JSON.stringify(data) // json形式に変換して添付
-})
-
-
-
+var data = 'gmargm;';
+postForm(data);

@@ -24,9 +24,7 @@ if( navigator.geolocation )
 			// アラート表示
 //			alert( "あなたの現在位置は、\n[" + lat + "," + lng + "]\nです。" ) ;
 
-			// HTMLへの書き出し
-			document.getElementById( 'result' ).innerHTML = '<dl><dt>緯度</dt><dd>' + lat + '</dd><dt>経度</dt><dd>' + lng + '</dd><dt>高度</dt><dd>' + alt + '</dd><dt>緯度、経度の精度</dt><dd>' + accLatlng + '</dd><dt>高度の精度</dt><dd>' + accAlt + '</dd><dt>方角</dt><dd>' + heading + '</dd><dt>速度</dt><dd>' + speed + '</dd></dl>' ;
-
+		
 			// 位置情報
 			var latlng = new google.maps.LatLng( lat , lng ) ;
 

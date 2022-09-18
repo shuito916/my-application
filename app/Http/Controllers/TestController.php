@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 class TestController extends Controller
 {
     public function test(Request $request){
-        $raw = file_get_contents('php://input'); // POSTされた生のデータを受け取る
-        $data = json_decode($raw);
-
+        return view('/test');
+    }
+    
+    public function test2(Request $request){
         
-        return view('/test')->with(['data' => $data]);
+        $ABC = $request->ABC;
+        return view('/test2')->with(['ABC'=>$ABC]);
     }
 }

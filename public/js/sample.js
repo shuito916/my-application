@@ -3,7 +3,7 @@ var marker = [];
 var infoWindow = [];
 var markerData = [];
 var current = {};
-var latlng = [];
+
 
 current.name = "現在位置";
 current.lat = lat.name;
@@ -11,11 +11,11 @@ current.lng = lng.name;
 markerData.push(current);
 
 for (var i = 0; i < Laravel.name.length; i++) {
-  var data_tmp = {};
-  data_tmp.name = Laravel.name[i][2];
-  data_tmp.lat = Laravel.name[i][0];
-  data_tmp.lng = Laravel.name[i][1];
-  markerData.push(data_tmp);
+  var current = {};
+  current.name = Laravel.name[i][2];
+  current.lat = Laravel.name[i][0];
+  current.lng = Laravel.name[i][1];
+  markerData.push(current);
     
 }
 
