@@ -1,6 +1,4 @@
-@extends('layouts.app')　　　　　　　　　　　　　　　　　　
 
-@section('content')
  　<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -13,14 +11,21 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
     </head>
-    <body>
+    <body style="background:url({{ asset('images/image05.png') }}); 
+background-size:cover;">
+        @extends('layouts.app')　　　　　　　　　　　　　　　　　　
+        @section('content')
+        <div class = "applicationname" style="text-align: center">
         <h1>外食に迷ったら！</h1>
+        </div>
+        <div class = "title" style="text-align: center">
         <h2>気分と予算を選択しよう！</h2>
+        </div>
         
         <form action="/category" method="POST">
             @csrf
         <div class="form-group row">
-            <label for="radioGrp02" class="col-md-4 col-form-label text-md-right">お腹の気分</label>
+            <label for="radioGrp02" class="col-md-4 col-form-label text-md-right">お腹の調子</label>
             <div class="col-md-6">
                 @foreach($rg02Datas as $r2key => $r2val)
                 <div class="form-check">
@@ -50,8 +55,10 @@
                 @endforeach
             </div>
         </div>
-        <input type="submit" value="保存"/>
+        <div class = "bottun" style="text-align: center">
+        <input type="submit" value="あなたに今おすすめのご飯は…"/>
+        </div>
         </form>
+        @endsection
     </body>
 </html>　　　　　　　　　　　　  　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-@endsection

@@ -18,7 +18,10 @@ Route::get('/', 'TopController@index');
 Route::post('/category', 'TopController@category');
 Route::get('/map', 'MapController@maps');
 Route::get('/test', 'TestController@test');
-Route::post('/test', 'TestController@test');
+
+Route::get('/test2', 'TestController@test2');
+Route::post('/test2', 'TestController@test2');
+
 
 Auth::routes();
 

@@ -10,16 +10,16 @@ class TopController extends Controller
     {
  
         $rg01Datas = [
-            "op1" => "ちょっといいもの食べたいな！",
-            "op2" => "こだわりはないかな",
-            "op3" => "今日はちょっと抑えめで、、"
+            "op1" => "ちょっといいもの食べたいな！（約3000円～）",
+            "op2" => "こだわりはないかな　　　　　（約800円～2000円）",
+            "op3" => "今日はちょっと抑えめで、、　（～約800円）"
         ];
         $rg01Checked = "op2";
         
         $rg02Datas = [
-            "opt1" => "めっちゃお腹すいた～！",
-            "opt2" => "そんなにがっつりはいらないかな～",
-            "opt3" => "今日はあっさりで行こう！"
+            "opt1" => "めっちゃお腹すいた～！　　　　　（空腹度：大）",
+            "opt2" => "そんなにがっつりはいらないかな～（空腹度：中）",
+            "opt3" => "今日はあっさりで行こう！　　　　（空腹度：小）"
         ];
         $rg02Checked = "opt2";
         
@@ -37,7 +37,8 @@ class TopController extends Controller
             $radioGrp01 = $request->radioGrp01;
             $radioGrp02 = $request->radioGrp02;
             
-            $sentakusi = [["op1","op2","op3"],["opt1","opt2","pot3"]];
+            
+            $sentakusi = [["op1","op2","op3"],["opt1","opt2","opt3"]];
             
             $cate1 = ["焼肉","ステーキ","かつ"];
             $cate2 = ["焼き鳥","居酒屋","鍋","韓国料理","すき焼き","串カツ","海鮮丼"];
@@ -57,8 +58,7 @@ class TopController extends Controller
                 $r = rand(0,count($cate2)-1);
                 $janl = $cate2[$r];
             } elseif($radioGrp01 == $sentakusi[0][0] && $radioGrp02 == $sentakusi[1][2]) {
-                $r = rand(0,count($cate3)-1);
-                $janl = $cate3[$r];
+                $janl = $cate3;
             } elseif($radioGrp01 == $sentakusi[0][1] && $radioGrp02 == $sentakusi[1][0]) {
                 $r = rand(0,count($cate4)-1);
                 $janl = $cate4[$r];
@@ -66,7 +66,7 @@ class TopController extends Controller
                 $r = rand(0,count($cate5)-1);
                 $janl = $cate5[$r];
             } elseif($radioGrp01 == $sentakusi[0][1] && $radioGrp02 == $sentakusi[1][2]) {
-                $r = rand(0,count($cate6-1));
+                $r = rand(0,count($cate6)-1);
                 $janl = $cate6[$r];
             } elseif($radioGrp01 == $sentakusi[0][2] && $radioGrp02 == $sentakusi[1][0]) {
                 $r = rand(0,count($cate7)-1);
@@ -75,21 +75,20 @@ class TopController extends Controller
                 $r = rand(0,count($cate8)-1);
                 $janl = $cate8[$r];
             } elseif($radioGrp01 == $sentakusi[0][2] && $radioGrp02 == $sentakusi[1][2]) {
-                $r = rand(0,count($cate9)-1);
-                $janl = $cate9[$r];
+                $janl = $cate9;
             } 
             
             
-            $lat = 35.25784309376972;
-            $lng = 136.21910095558135;
+            $curent_lat = 35.25784309376972;
+            $curent_lng = 136.21910095558135;
             
-            $lat_string = (string)$lat;
-            $lng_string = (string)$lng;
+            $lat_string = (string)$curent_lat;
+            $lng_string = (string)$curent_lng;
             
             $latlngList = $lat_string . "," . $lng_string;
             
             $latlngList = array($latlngList);
-            $key = 'APIキー';
+            $key = config("services.google-map.apikey");
             $keyword = $janl;
             $arr1 = [];
             
@@ -104,7 +103,7 @@ class TopController extends Controller
                 }
             }
             
-            return view('/category')->with(['arr1' => $arr1, 'janl' => $janl, 'lat' => $lat, 'lng' => $lng]);
+            return view('/category')->with(['arr1' => $arr1, 'janl' => $janl, 'lat' => $lat, 'lng' => $lng, 'curent_lat' => $curent_lat, 'curent_lng' => $curent_lng]);
         }
     
 }

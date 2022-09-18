@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
         <title>Laravel</title>
 
@@ -12,7 +12,7 @@
 
     </head>
     <body>
-        <a></a>
-        <script src="{{ asset('js/test.js') }}"></script>
+
+<script src="{{ asset('js/test.js') }}"></script>
     </body>
 </html>
