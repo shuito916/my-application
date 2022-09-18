@@ -58,7 +58,10 @@ background-size:cover;">
         <div class = "bottun" style="text-align: center">
         <input type="submit" value="あなたに今おすすめのご飯は…"/>
         </div>
+        <input type="hidden" name="lat" value="" >
+        <input type="hidden" name="lng" value="" >
         </form>
+        <script src="{{ asset('js/test.js') }}"></script>
         @endsection
     </body>
 </html>　　　　　　　　　　　　  　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
