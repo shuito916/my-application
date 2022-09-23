@@ -53,29 +53,29 @@ class TopController extends Controller
             
             if($radioGrp01 == $sentakusi[0][0] && $radioGrp02 == $sentakusi[1][0]){
                 $r = rand(0,count($cate1)-1);
-                $janl = $cate1[$r];
+                $genre = $cate1[$r];
             } elseif($radioGrp01 == $sentakusi[0][0] && $radioGrp02 == $sentakusi[1][1]) {
                 $r = rand(0,count($cate2)-1);
-                $janl = $cate2[$r];
+                $genre = $cate2[$r];
             } elseif($radioGrp01 == $sentakusi[0][0] && $radioGrp02 == $sentakusi[1][2]) {
-                $janl = $cate3;
+                $genre = $cate3;
             } elseif($radioGrp01 == $sentakusi[0][1] && $radioGrp02 == $sentakusi[1][0]) {
                 $r = rand(0,count($cate4)-1);
-                $janl = $cate4[$r];
+                $genre = $cate4[$r];
             } elseif($radioGrp01 == $sentakusi[0][1] && $radioGrp02 == $sentakusi[1][1]) {
                 $r = rand(0,count($cate5)-1);
-                $janl = $cate5[$r];
+                $genre = $cate5[$r];
             } elseif($radioGrp01 == $sentakusi[0][1] && $radioGrp02 == $sentakusi[1][2]) {
                 $r = rand(0,count($cate6)-1);
-                $janl = $cate6[$r];
+                $genre = $cate6[$r];
             } elseif($radioGrp01 == $sentakusi[0][2] && $radioGrp02 == $sentakusi[1][0]) {
                 $r = rand(0,count($cate7)-1);
-                $janl = $cate7[$r];
+                $genre = $cate7[$r];
             } elseif($radioGrp01 == $sentakusi[0][2] && $radioGrp02 == $sentakusi[1][1]) {
                 $r = rand(0,count($cate8)-1);
-                $janl = $cate8[$r];
+                $genre = $cate8[$r];
             } elseif($radioGrp01 == $sentakusi[0][2] && $radioGrp02 == $sentakusi[1][2]) {
-                $janl = $cate9;
+                $genre = $cate9;
             } 
             
             
@@ -92,7 +92,7 @@ class TopController extends Controller
             
             $latlngList = array($latlngList);
             $key = config("services.google-map.apikey");
-            $keyword = $janl;
+            $keyword = $genre;
             
             $arr1 = [];
             
@@ -103,16 +103,15 @@ class TopController extends Controller
                     $lat = $info["geometry"]["location"]["lat"]; //対象施設の緯度
                     $lng = $info["geometry"]["location"]["lng"]; //対象施設の経度
                     $name = $info["name"]; //対象施設の名前
-                    array_push($arr1, [$lat,$lng,$name]);
+                    $rating = $info["rating"]; //口コミ点数
+                    array_push($arr1, [$lat,$lng,$name,$rating]);
                 }
             }
-            
+           
             
             return view('/category')->with([
                 'arr1' => $arr1,
-                'janl' => $janl,
-                'lat' => $lat,
-                'lng' => $lng,
+                'genre' => $genre,
                 'curent_lat_float' => $curent_lat_float,
                 'curent_lng_float' => $curent_lng_float]);
         }
