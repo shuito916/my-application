@@ -82,18 +82,22 @@ class TopController extends Controller
             $curent_lat = $request->lat;
             $curent_lng = $request->lng;
             
-            $lat_string = (string)$curent_lat;
-            $lng_string = (string)$curent_lng;
+            $curent_lat_float = (float)$curent_lat;
+            $curent_lng_float = (float)$curent_lng;
             
-            $latlngList = $lat_string . "," . $lng_string;
+            $curent_lat_string = (string)$curent_lat;
+            $curent_lng_string = (string)$curent_lng;
+            
+            $latlngList = $curent_lat_string . "," . $curent_lng_string;
             
             $latlngList = array($latlngList);
             $key = config("services.google-map.apikey");
             $keyword = $janl;
+            
             $arr1 = [];
             
             foreach($latlngList as $latlng){
-                $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$latlng.'&radius=10000&language=ja&keyword='.$keyword.'&key='.$key;
+                $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$latlng.'&radius=5000&language=ja&keyword='.$keyword.'&key='.$key;
                 $data = json_decode(@file_get_contents($url), true);
                 foreach($data["results"] as $info){
                     $lat = $info["geometry"]["location"]["lat"]; //対象施設の緯度
@@ -103,7 +107,14 @@ class TopController extends Controller
                 }
             }
             
-            return view('/category')->with(['arr1' => $arr1, 'janl' => $janl, 'lat' => $lat, 'lng' => $lng, 'curent_lat' => $curent_lat, 'curent_lng' => $curent_lng]);
+            
+            return view('/category')->with([
+                'arr1' => $arr1,
+                'janl' => $janl,
+                'lat' => $lat,
+                'lng' => $lng,
+                'curent_lat_float' => $curent_lat_float,
+                'curent_lng_float' => $curent_lng_float]);
         }
     
 }

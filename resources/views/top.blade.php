@@ -61,6 +61,8 @@ background-size:cover;">
         <input type="hidden" name="lat" value="" >
         <input type="hidden" name="lng" value="" >
         </form>
+        
+        
         <script src="{{ asset('js/test.js') }}"></script>
         @endsection
     </body>
