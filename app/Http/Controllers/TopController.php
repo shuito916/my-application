@@ -108,6 +108,7 @@ class TopController extends Controller
                 }
             }
             
+            $sort_keys = array();
             foreach($arr1 as $key => $value)
             {
                 $sort_keys[$key] = $value[3];
