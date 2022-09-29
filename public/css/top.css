@@ -1,0 +1,94 @@
+body {
+  background:url(../images/image05.png);
+  background-size:cover;
+}
+h1 {
+  color: #DF0101;
+  text-shadow: 1px 1px 1px #ff9800, -1px 1px 1px #ff9800, 1px -1px 1px #ff9800,
+    -1px -1px 1px #ff9800, 1px 1px 1px #ff9800, -1px 1px 1px #ff9800,
+    1px -1px 1px #ff9800, -1px -1px 1px #ff9800;
+  font-family: "Kokoro";
+}
+h2 {
+  color: 	#00008b;
+  position: relative;
+  top: 16px;
+}
+.form .form-title1 {
+  font-weight: bold;
+  position: relative;
+  top: 34px; 
+  padding-bottom: 30px;
+}
+.form .form-title1:before {
+  content: url(../images/kuhuku.png);  /*画像のURL*/
+  margin-right:10px;  /*画像右の余白*/
+  position: relative;
+  top: 12px; 
+}
+.form .form-title2 {
+  font-weight: bold;
+  position: relative;
+  top: 34px; 
+  padding-bottom: 30px;
+}
+.form .form-title2:before {
+  content: url(../images/money_icon.png);  /*画像のURL*/
+  margin-right:10px;  /*画像右の余白*/
+  position: relative;
+  top: 8px; 
+}
+.form fieldset{
+  background-color:#FFFFFF;
+  text-align: center;
+  margin: auto;
+  width: 650;
+  position: relative;
+  bottom: 24px;
+  border:1px solid #ccc;
+  padding-bottom: 10px;
+  border-radius: 20px;/*角の丸み*/
+}
+.form label {
+  text-align: center;
+  font-size:16px;
+}
+
+.form input[type=submit] {
+    position: relative;
+    bottom: 26px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 240px;
+    padding: 10px 25px;
+    color: #FFF;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #6bb6ff;
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 3px;
+    border-radius: 50px;
+}
+.form input[type=submit]:after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #FFF;
+    border-right: 3px solid #FFF;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    top: 46%;
+    right: 20px;
+    border-radius: 1px;
+    transition: 0.3s ease-in-out;
+}
+.form input[type=submit]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}
+.form-group2 {
+  position: relative;
+  bottom: 24px;
+}

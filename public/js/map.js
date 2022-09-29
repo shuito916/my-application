@@ -25,7 +25,7 @@ console.log(markerData);
 function initMap() {
  // 地図の作成
     var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
-    map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
+    map = new google.maps.Map(document.getElementById('map'), { // #sampleに地図を埋め込む
         center: mapLatLng, // 地図の中心を指定
         zoom: 13 // 地図のズームを指定
     });
@@ -40,7 +40,7 @@ function initMap() {
         });
  
     infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-        content: '<div class="sample">' + markerData[i]['name'] + '</div>' // 吹き出しに表示する内容
+        content: '<div class="map">' + markerData[i]['name'] + '</div>' // 吹き出しに表示する内容
     });
  
      markerEvent(i); // マーカーにクリックイベントを追加
@@ -58,7 +58,7 @@ function initMap() {
     		strokeWeight: 1.0      
        }
     });
-    ranking();
+    results();
 }
  
 // マーカーにクリックイベントを追加
@@ -68,32 +68,32 @@ function markerEvent(i) {
   });
 }
 
-// function results(){
-//       var resultHTML = "<ol>";
+function results(){
+      var resultHTML = "<ol>";
       
-//       for (var i = 1; i < data.name.length; i++) {
+      for (var i = 1; i < data.name.length; i++) {
         
-//         //ratingがないのものは「---」に表示変更
-//         var rating = data.name[i][3];
-//         if(rating == undefined) rating = "---";
+        //ratingがないのものは「---」に表示変更
+        var rating = data.name[i][3];
+        if(rating == 0) rating = "---";
         
-//         //表示内容（評価＋名称）
-//         var content = "【" + rating + "】 " + data.name[i][2];
+        //表示内容（評価＋名称）
+        var content = "【" + rating + "】 " + data.name[i][2];
         
-//         resultHTML += "<li>";
-//         resultHTML += content;
-//         resultHTML += "</li>";
-//       }
+        resultHTML += "<li>";
+        resultHTML += content;
+        resultHTML += "</li>";
+      }
       
-//       resultHTML += "</ol>";
+      resultHTML += "</ol>";
       
-//       //結果表示
-//       document.getElementById("results").innerHTML = resultHTML;
-//     }
+      //結果表示
+      document.getElementById("results").innerHTML = resultHTML;
+    }
 
-function ranking(){
-    //結果表示
-    var resultHTML ="<ol>"+"<li>"+"hogehoge"+"</li>"+"</ol>";
-    console.log(resultHTML);
-    document.getElementById("results").innerHTML = resultHTML;
-}
+// function ranking(){
+//     //結果表示
+//     var resultHTML ="<ol>"+"<li>"+"hogehoge"+"</li>"+"</ol>";
+//     console.log(resultHTML);
+//     document.getElementById("results").innerHTML = resultHTML;
+// }

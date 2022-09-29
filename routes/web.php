@@ -17,7 +17,7 @@ use App\Http\Controllers\TestController;
 Route::get('/', 'TopController@index');
 Route::post('/category', 'TopController@category');
 Route::get('/map', 'MapController@maps');
-Route::get('/test', 'TestController@test');
+Route::get('/test', 'TestController@test3');
 
 Route::get('/test2', 'TestController@test2');
 Route::post('/test2', 'TestController@test2');

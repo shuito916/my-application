@@ -10,16 +10,16 @@ class TopController extends Controller
     {
  
         $rg01Datas = [
-            "op1" => "ちょっといいもの食べたいな！（約3000円～）",
-            "op2" => "こだわりはないかな　　　　　（約800円～2000円）",
-            "op3" => "今日はちょっと抑えめで、、　（～約800円）"
+            "op1" => "「ちょっといいもの食べたいな！」　　　（約3000円～）",
+            "op2" => "「こだわりはないかな」　　　　　（約800円～2000円）",
+            "op3" => "「今日はちょっと抑えめで、、」　　　　 （～約800円）"
         ];
         $rg01Checked = "op2";
         
         $rg02Datas = [
-            "opt1" => "めっちゃお腹すいた～！　　　　　（空腹度：大）",
-            "opt2" => "そんなにがっつりはいらないかな～（空腹度：中）",
-            "opt3" => "今日はあっさりで行こう！　　　　（空腹度：小）"
+            "opt1" => "「めっちゃお腹すいた～！」　　　　　（空腹度：大）",
+            "opt2" => "「そんなにがっつりはいらないかな～」（空腹度：中）",
+            "opt3" => "「今日はあっさりで行こう！」　　　　（空腹度：小）"
         ];
         $rg02Checked = "opt2";
         
@@ -107,7 +107,14 @@ class TopController extends Controller
                     array_push($arr1, [$lat,$lng,$name,$rating]);
                 }
             }
-           
+            
+            foreach($arr1 as $key => $value)
+            {
+                $sort_keys[$key] = $value[3];
+            }
+             
+            array_multisort($sort_keys, SORT_DESC, $arr1);
+            
             
             return view('/category')->with([
                 'arr1' => $arr1,
