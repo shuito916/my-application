@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>料理ジャンル</title>
+        <title>外食の迷い子</title>
 
         <link rel="stylesheet" href="{{ asset('css/top.css') }}">
         <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
