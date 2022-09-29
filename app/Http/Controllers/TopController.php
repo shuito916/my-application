@@ -108,12 +108,7 @@ class TopController extends Controller
                 }
             }
             
-            foreach($arr1 as $key => $value)
-            {
-                $sort_keys[$key] = $value[3];
-            }
-             
-            array_multisort($sort_keys, SORT_DESC, $arr1);
+
             
             
             return view('/category')->with([
